@@ -1,7 +1,7 @@
 #!/bin/bash
 
 date=$(date "+%Y-%m-%d")
-dir=data
+dir=quotes
 if [ ! -d "${dir}" ]
 then
 	mkdir ${dir}
