@@ -1,6 +1,6 @@
 #!/bin/bash
 
-date=$(date "+%Y-%m-%d")
+
 dir=quotes
 if [ ! -d "${dir}" ]
 then
@@ -11,7 +11,6 @@ do
 	echo "fetch ${ticket} ..."
 	output=${dir}/${ticket}
 	touch ${output}
-	googleQuote -t ${ticket} -d 100 >> ${output}
-	cat ${output} | sort -k 1 -k 2 -r | uniq > ${output}.tmp
-	mv -f ${output}.tmp ${output}
+	googleQuote -t ${ticket} -d 100 > ${output}
+	sort -k 1 -k 2 -r -o ${output} ${output}
 done

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-date=$(date "+%Y-%m-%d")
+
 dir=history
 if [ ! -d "${dir}" ]
 then
