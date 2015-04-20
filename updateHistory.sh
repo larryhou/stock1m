@@ -1,16 +1,15 @@
 #!/bin/bash
 
-
 dir=history
 if [ ! -d "${dir}" ]
 then
 	mkdir ${dir}
 fi
-cat tickets.HK | while read ticket
+
+cat HKG.t SHA.t SHE.t | while read ticker
 do
-	echo "fetch ${ticket} ..."
-	output=${dir}/${ticket}
+	echo "fetch ${ticker} ..."
+	output=${dir}/${ticker}
 	touch ${output}
-	googleQuote -t ${ticket} -a  > ${output}
-	sort -k 1 -k 2 -r -o ${output} ${output}
+	yahooQuote -t ${ticker} > ${output}
 done
